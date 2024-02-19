@@ -116,8 +116,8 @@ public class Main {
         System.out.println(Arrays.toString(x));
         System.out.println(Arrays.toString(y));
 
-        System.out.println(op.covarianza(x, y));
         System.out.println(op.correlazione(x, y));
+        System.out.println(op.correlazione(x, z));
         System.out.println(op.correlazione(z, y));
 
 
