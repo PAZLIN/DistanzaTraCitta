@@ -102,6 +102,7 @@ public class Main {
         System.out.println(misurazioni);
 
         // calcolo la covarianza tra X = differenzaDistanze e Y = media tra distanza reale e calcolata
+        // calcolo la covarianza tra Z = differenzadistanze (percentuale rispetto alla media distanze) e media distanze
         float[] x = new float[misurazioni.size()];      // differenza distanze in km
         float[] z = new float[misurazioni.size()];      // differenza distanze (percentuale rispetto alla media delle distanze)
         float[] y = new float[misurazioni.size()];      // media distanze
