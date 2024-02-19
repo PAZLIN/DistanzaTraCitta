@@ -9,7 +9,6 @@ public class Main {
         Operazione op = new Operazione();
 
 
-
         float[] datiX = new float[]{1, 2, 3, 4, 5, 69};
         float[] datiY = new float[]{12, 18, 22, 30, 45, 50};
 
@@ -84,7 +83,7 @@ public class Main {
         // ottengo i due set di dati X (distanza calcolata) e Y (distanza reale)
         float[] distCalcolate_X = new float[misurazioni.size()];
         float[] distReali_Y = new float[misurazioni.size()];
-        for (int i = 0; i<misurazioni.size(); i++){
+        for (int i = 0; i < misurazioni.size(); i++) {
             distCalcolate_X[i] = (float) misurazioni.get(i).distCalcolata;
             distReali_Y[i] = (float) misurazioni.get(i).distReale;
         }
@@ -95,30 +94,34 @@ public class Main {
         System.out.println(op.covarianza(distCalcolate_X, distReali_Y));
         System.out.println(op.correlazione(distCalcolate_X, distReali_Y));
 
+        // calcolo il campo differenzaDistanze negli elementi di misurazioni
+        for (Misurazione m : misurazioni) {
+            m.setDifferenzaDistanze();
+        }
 
-        // calcolo gli scarti
+        System.out.println(misurazioni);
 
+        // calcolo la covarianza tra X = differenzaDistanze e Y = media tra distanza reale e calcolata
+        float[] x = new float[misurazioni.size()];      // differenza distanze in km
+        float[] z = new float[misurazioni.size()];      // differenza distanze (percentuale rispetto alla media delle distanze)
+        float[] y = new float[misurazioni.size()];      // media distanze
+        for (int i = 0; i < misurazioni.size(); i++) {
+           x[i] = (float) misurazioni.get(i).differenzaDistanze;
+           y[i] = (float) op.mediaAritmetica((float) misurazioni.get(i).distReale, (float) misurazioni.get(i).distCalcolata);
+           z[i] = (float) (misurazioni.get(i).differenzaDistanze * 100 /
+                             (op.mediaAritmetica((float) misurazioni.get(i).distReale, (float) misurazioni.get(i).distCalcolata)));
+        }
 
+        System.out.println(Arrays.toString(x));
+        System.out.println(Arrays.toString(y));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(op.covarianza(x, y));
+        System.out.println(op.correlazione(x, y));
+        System.out.println(op.correlazione(z, y));
 
 
 
     }
-
-
 
 
 }
