@@ -78,7 +78,7 @@ public class Main {
         misurazioni.get(26).distReale = 11141.93;
         misurazioni.get(27).distReale = 1953.77;
 
-        System.out.println(misurazioni);
+        System.out.println(misurazioni) ;
 
 
 
