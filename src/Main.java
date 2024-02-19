@@ -60,6 +60,12 @@ public class Main {
         misurazioni.get(8).distReale = 1209.45;
         misurazioni.get(9).distReale = 2281.72;
 
+
+
+
+
+
+        //
         misurazioni.get(10).distReale = 9751.86;
         misurazioni.get(11).distReale = 653.68;
         misurazioni.get(12).distReale = 1798.55;
