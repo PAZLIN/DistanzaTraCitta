@@ -128,7 +128,7 @@ public class Operazione {
                 Math.cos(X_lat) * Math.cos(Y_lat) *
                         Math.cos(distLong) ) * R;
         double distKm = d/1000;
-        return distKm;
+        return distKm   ;
     }
 
 
