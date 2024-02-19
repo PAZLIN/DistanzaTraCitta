@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
@@ -78,7 +79,26 @@ public class Main {
         misurazioni.get(26).distReale = 11141.93;
         misurazioni.get(27).distReale = 1953.77;
 
-        System.out.println(misurazioni) ;
+        System.out.println(misurazioni);
+
+        // ottengo i due set di dati X (distanza calcolata) e Y (distanza reale)
+        float[] distCalcolate_X = new float[misurazioni.size()];
+        float[] distReali_Y = new float[misurazioni.size()];
+        for (int i = 0; i<misurazioni.size(); i++){
+            distCalcolate_X[i] = (float) misurazioni.get(i).distCalcolata;
+            distReali_Y[i] = (float) misurazioni.get(i).distReale;
+        }
+
+        System.out.println(Arrays.toString(distCalcolate_X));
+        System.out.println(Arrays.toString(distReali_Y));
+
+        System.out.println(op.covarianza(distCalcolate_X, distReali_Y));
+        System.out.println(op.correlazione(distCalcolate_X, distReali_Y));
+
+
+        // calcolo gli scarti
+
+
 
 
 
